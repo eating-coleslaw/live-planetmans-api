@@ -1,0 +1,12 @@
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\bin\Debug\net5.0\LivePlanetmans.App.deps.json
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\bin\Debug\net5.0\LivePlanetmans.App.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\bin\Debug\net5.0\ref\LivePlanetmans.App.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\bin\Debug\net5.0\LivePlanetmans.App.pdb
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.csproj.AssemblyReference.cache
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.AssemblyInfoInputs.cache
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.AssemblyInfo.cs
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.csproj.CoreCompileInputs.cache
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\ref\LivePlanetmans.App.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.App\obj\Debug\net5.0\LivePlanetmans.App.pdb

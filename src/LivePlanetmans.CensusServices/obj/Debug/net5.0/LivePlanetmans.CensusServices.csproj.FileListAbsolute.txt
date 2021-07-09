@@ -1,0 +1,17 @@
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.csproj.AssemblyReference.cache
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.AssemblyInfoInputs.cache
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.AssemblyInfo.cs
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.csproj.CoreCompileInputs.cache
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\LivePlanetmans.CensusServices.deps.json
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\LivePlanetmans.CensusServices.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\ref\LivePlanetmans.CensusServices.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\LivePlanetmans.CensusServices.pdb
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\DaybreakGames.Census.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\System.Reactive.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\DaybreakGames.Census.pdb
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\bin\Debug\net5.0\System.Reactive.xml
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.csproj.CopyComplete
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\ref\LivePlanetmans.CensusServices.dll
+D:\GitHub\LivePlanetmans\LivePlanetmans\src\LivePlanetmans.CensusServices\obj\Debug\net5.0\LivePlanetmans.CensusServices.pdb

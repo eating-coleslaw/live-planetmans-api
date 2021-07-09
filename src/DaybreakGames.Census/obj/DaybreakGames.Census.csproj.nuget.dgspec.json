@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\GitHub\\LivePlanetmans\\LivePlanetmans\\src\\DaybreakGames.Census\\DaybreakGames.Census.csproj": {}
+  },
+  "projects": {
+    "D:\\GitHub\\LivePlanetmans\\LivePlanetmans\\src\\DaybreakGames.Census\\DaybreakGames.Census.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\LivePlanetmans\\LivePlanetmans\\src\\DaybreakGames.Census\\DaybreakGames.Census.csproj",
+        "projectName": "DaybreakGames.Census",
+        "projectPath": "D:\\GitHub\\LivePlanetmans\\LivePlanetmans\\src\\DaybreakGames.Census\\DaybreakGames.Census.csproj",
+        "packagesPath": "C:\\Users\\hanzi\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\LivePlanetmans\\LivePlanetmans\\src\\DaybreakGames.Census\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hanzi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Websocket.Client": {
+              "target": "Package",
+              "version": "[4.3.32, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
