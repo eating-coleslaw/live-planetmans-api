@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "YvM9GAup5SJzUHvVHkFVK3EfHhJ4Ek6fb17w2Kp0EVhqJwC4DXm7KULsTvDHOquglw6QrACet4pZMMyT2/Qf5A==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\LivePlanetmans\\LivePlanetmans\\LivePlanetmans.Api\\LivePlanetmans.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hanzi\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\hanzi\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\hanzi\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512",
+    "C:\\Users\\hanzi\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\hanzi\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\hanzi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\hanzi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
