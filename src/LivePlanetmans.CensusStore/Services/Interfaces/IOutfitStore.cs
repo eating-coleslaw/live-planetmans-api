@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CensusStore.Services
+namespace LivePlanetmans.CensusStore.Services
 {
     public interface IOutfitStore
     {

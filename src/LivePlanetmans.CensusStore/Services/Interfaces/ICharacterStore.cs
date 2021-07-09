@@ -1,7 +1,7 @@
 ﻿using LivePlanetmans.Data.Models.Census;
 using System.Threading.Tasks;
 
-namespace CensusStore.Services
+namespace LivePlanetmans.CensusStore.Services
 {
     public interface ICharacterStore
     {

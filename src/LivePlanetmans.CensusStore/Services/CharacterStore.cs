@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace CensusStore.Services
+namespace LivePlanetmans.CensusStore.Services
 {
     public class CharacterStore : ICharacterStore
     {

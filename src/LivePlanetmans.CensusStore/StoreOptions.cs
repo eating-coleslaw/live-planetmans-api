@@ -1,6 +1,6 @@
 ﻿// Credit to Lampjaw
 
-namespace CensusStore
+namespace LivePlanetmans.CensusStore
 {
     public class StoreOptions
     {

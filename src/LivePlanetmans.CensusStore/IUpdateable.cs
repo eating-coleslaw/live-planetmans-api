@@ -3,7 +3,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace CensusStore
+namespace LivePlanetmans.CensusStore
 {
     public interface IUpdateable
     {

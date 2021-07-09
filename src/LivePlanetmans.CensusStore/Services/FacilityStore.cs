@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CensusStore.Services
+namespace LivePlanetmans.CensusStore.Services
 {
     public class FacilityStore : IFacilityStore
     {

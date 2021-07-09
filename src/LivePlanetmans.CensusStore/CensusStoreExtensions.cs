@@ -1,9 +1,9 @@
 ﻿using LivePlanetmans.CensusServices;
-using CensusStore.Services;
+using LivePlanetmans.CensusStore.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CensusStore
+namespace LivePlanetmans.CensusStore
 {
     public static class CensusStoreExtensions
     {
