@@ -12,7 +12,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
 
         protected virtual bool ShouldStoreEvent()
         {
-            return false;
+            return true;
         }
 
         protected bool IsValidCharacterId(string characterId)

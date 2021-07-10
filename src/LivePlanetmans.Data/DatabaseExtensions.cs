@@ -24,7 +24,7 @@ namespace LivePlanetmans.Data
 
             var options = configuration.Get<DatabaseOptions>();
 
-            var connectionString = configuration.GetConnectionString("PlanetmansConnectionString");
+            var connectionString = configuration["ConnectionStrings:PlanetmansConnectionString"];
 
             services.AddDbContextPool<PlanetmansDbContext>(builder =>
                 builder.UseNpgsql(connectionString, b =>
@@ -62,7 +62,6 @@ namespace LivePlanetmans.Data
 
             lock (_initializeLock)
             {
-
                 using var context = new PlanetmansDbContext(
                     serviceProvider.GetRequiredService<DbContextOptions<PlanetmansDbContext>>());
 

@@ -49,7 +49,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
                     WorldId = payload.WorldId,
                     ZoneId = payload.ZoneId.Value,
                     FacilityId = payload.FacilityId,
-                    OutfitId = payload.OutfitId == "0" ? null : payload.OutfitId // credit to Lampjaw
+                    OutfitId = payload.OutfitId == "0" ? null : payload.OutfitId
                 };
 
                 if (ShouldStoreEvent())

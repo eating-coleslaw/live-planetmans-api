@@ -7,15 +7,18 @@ namespace LivePlanetmans.App
 {
     public class CensusStreamOptions
     {
+        public const string CensusStream = "CensusStream";
+
+
         public bool DisableWebsocketMonitor { get; set; } = false;
         public bool DisableEventsRepository { get; set; } = false;
 
-        public IEnumerable<string> CensusStreamServices { get; set; }
-        public IEnumerable<string> CensusStreamWorlds { get; set; }
-        public IEnumerable<string> CensusStreamCharacters { get; set; }
-        public bool CensusStreamLogicalAndCharactersWithWorlds { get; set; } = true;
+        public IEnumerable<string> Services { get; set; }
+        public IEnumerable<string> Worlds { get; set; }
+        public IEnumerable<string> Characters { get; set; }
+        public bool LogicalAndCharactersWithWorlds { get; set; } = true;
 
-        public IEnumerable<string> CensusStreamExperienceIds { get; set; } = new[]
+        public IEnumerable<string> ExperienceIds { get; set; } = new[]
         {
             "7",      // Revive
             "2",      // Kill Player Assist

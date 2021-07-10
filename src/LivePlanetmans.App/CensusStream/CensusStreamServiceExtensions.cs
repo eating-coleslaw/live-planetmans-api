@@ -4,6 +4,7 @@ using LivePlanetmans.App.CensusStream.EventProcessors;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System;
 
 namespace LivePlanetmans.App.CensusStream
 {
@@ -15,36 +16,13 @@ namespace LivePlanetmans.App.CensusStream
 
             services.Configure<CensusStreamOptions>(configuration);
 
-            services.Configure<CensusStreamOptions>(options =>
-            {
-                var streamOptions = configuration.GetSection("CensusStreamOptions");
-
-                options.CensusStreamCharacters = streamOptions.GetValue<IEnumerable<string>>("Characters");
-                options.CensusStreamWorlds = streamOptions.GetValue<IEnumerable<string>>("Worlds");
-                options.CensusStreamServices = streamOptions.GetValue<IEnumerable<string>>("Services");
-                options.CensusStreamLogicalAndCharactersWithWorlds = streamOptions.GetValue<bool>("LogicalAndCharactersWithWorlds");
-
-                var experienceIds = streamOptions.GetValue<IEnumerable<string>>("ExperienceIds");
-
-                if (experienceIds != null)
-                {
-                    options.CensusStreamExperienceIds = experienceIds;
-                }
-            });
+            services.Configure<CensusStreamOptions>(configuration.GetSection(CensusStreamOptions.CensusStream));
 
 
             services.AddTransient<IWebsocketEventHandler, WebsocketEventHandler>();
             
-            // Option 1: Use this if you only need one WebsocketMonitor instance
             services.AddTransient<IWebsocketMonitor, WebsocketMonitor>();
             services.AddHostedService<WebsocketMonitorHostedService>();
-
-            // Option 2: Use these insteand of the above if you are using multiple WebsocketMonitor instances via WebsocketMonitorHealper
-            /*
-                services.AddTransient<WebsocketMonitor>();
-                services.AddSingleton<IWebsocketMonitorHelper, WebsocketMonitorHelper>();
-            */
-
 
             services.AddTransient<IWebsocketHealthMonitor, WebsocketHealthMonitor>();
 

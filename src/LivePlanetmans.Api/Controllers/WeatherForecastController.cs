@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LivePlanetmans.Data.Models.Census;
+using LivePlanetmans.Data.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -18,8 +20,11 @@ namespace LivePlanetmans.Api.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly ILoadoutRepository _loadoutRepository;
+
+        public WeatherForecastController(ILoadoutRepository loadoutRepository, ILogger<WeatherForecastController> logger)
         {
+            _loadoutRepository = loadoutRepository;
             _logger = logger;
         }
 
@@ -34,6 +39,12 @@ namespace LivePlanetmans.Api.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("/loadouts")]
+        public async Task<IEnumerable<Loadout>> GetLoadouts()
+        {
+            return await _loadoutRepository.GetAllLoadoutsAsync();
         }
     }
 }

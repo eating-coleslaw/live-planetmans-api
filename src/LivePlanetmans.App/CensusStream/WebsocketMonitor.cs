@@ -52,22 +52,27 @@ namespace LivePlanetmans.App.CensusStream
         {
             var eventNames = new List<string>();
 
-            if (_options.CensusStreamServices != null)
+            if (_options.Services != null)
             {
-                eventNames.AddRange(_options.CensusStreamServices);
+                eventNames.AddRange(_options.Services);
             }
 
-            if (_options.CensusStreamExperienceIds != null && _options.CensusStreamExperienceIds.Any())
+            if (_options.ExperienceIds != null && _options.ExperienceIds.Any())
             {
-                var experienceEvents = _options.CensusStreamExperienceIds.Select(id => $"GainExperience_experience_id_{id}");
+                var experienceEvents = _options.ExperienceIds.Select(id => $"GainExperience_experience_id_{id}");
                 eventNames.AddRange(experienceEvents);
             }
 
+            Console.WriteLine("============= Websocket Monitor =============");
+
+            Console.WriteLine($"Characters: {_options.Characters?.Count()}");
+            Console.WriteLine($"Worlds: {_options.Worlds?.Count()}");
+
             return new CensusStreamSubscription
             {
-                Characters = _options.CensusStreamCharacters,
-                Worlds = _options.CensusStreamWorlds,
-                LogicalAndCharactersWithWorlds = _options.CensusStreamLogicalAndCharactersWithWorlds,
+                Characters = _options.Characters,
+                Worlds = _options.Worlds,
+                LogicalAndCharactersWithWorlds = _options.LogicalAndCharactersWithWorlds,
                 EventNames = eventNames
             };
         }

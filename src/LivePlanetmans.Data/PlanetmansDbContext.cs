@@ -16,7 +16,8 @@ namespace LivePlanetmans.Data
         }
 
         #region Event DbSets
-        public DbSet<ContinentLock> ContinentLocks{ get; set; }
+        public DbSet<Character> Characters { get; set; }
+        public DbSet<ContinentLock> ContinentLocks { get; set; }
         public DbSet<ContinentUnlock> ContinentUnlocks { get; set; }
         public DbSet<Death> Deaths { get; set; }
         public DbSet<ExperienceGain> ExperienceGains { get; set; }
@@ -69,6 +70,7 @@ namespace LivePlanetmans.Data
             #region Census Configuration
             builder.ApplyConfiguration(new UpdaterSchedulerConfiguration());
 
+            builder.ApplyConfiguration(new CharacterConfiguration());
             builder.ApplyConfiguration(new ExperienceConfiguration());
             builder.ApplyConfiguration(new FactionConfiguration());
             builder.ApplyConfiguration(new FacilityLinkConfiguration());

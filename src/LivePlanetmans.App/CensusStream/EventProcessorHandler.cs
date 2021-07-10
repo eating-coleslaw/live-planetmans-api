@@ -37,7 +37,14 @@ namespace LivePlanetmans.App.CensusStream
 
             var inputParam = payload.ToObject(processor.PayloadType, StreamConstants.PayloadDeserializer);
 
-            await (Task)processor.ProcessMethodReference.Invoke(processor.Instance, new[] { inputParam });
+            try
+            {
+                await (Task)processor.ProcessMethodReference.Invoke(processor.Instance, new[] { inputParam });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error processing {eventName} payload: {payload} => {ex}");
+            }
 
             return true;
         }
@@ -57,7 +64,7 @@ namespace LivePlanetmans.App.CensusStream
             }
 
             var payloadType = serviceType.GetGenericArguments().First();
-            var processMethodReference = typeof(IEventProcessor<>).MakeGenericType(payloadType).GetMethod("Process", new[] { payloadType, typeof(long) });
+            var processMethodReference = typeof(IEventProcessor<>).MakeGenericType(payloadType).GetMethod("Process", new[] { payloadType });
 
             return new EventProcessorDefinition(instance, attr.EventName, payloadType, processMethodReference);
         }

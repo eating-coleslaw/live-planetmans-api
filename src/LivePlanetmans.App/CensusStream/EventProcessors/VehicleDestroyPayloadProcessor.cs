@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using LivePlanetmans.App.CensusStream.Models;
 using System;
 using System.Threading.Tasks;
+using LivePlanetmans.Data.Models.Census;
+using LivePlanetmans.App.Services.Planetside;
 
 namespace LivePlanetmans.App.CensusStream.EventProcessors
 {
@@ -11,13 +13,15 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
     public class VehicleDestroyPayloadProcessor : EventProcessorBase, IEventProcessor<VehicleDestroyPayload>
     {
         private readonly IEventRepository _eventRepository;
+        private readonly ICharacterService _characterService;
         private readonly ILogger<VehicleDestroyPayloadProcessor> _logger;
 
         private PayloadUniquenessFilter<VehicleDestroyPayload> _vehicleDestroyFilter = new PayloadUniquenessFilter<VehicleDestroyPayload>();
 
-        public VehicleDestroyPayloadProcessor(IEventRepository eventRepository, ILogger<VehicleDestroyPayloadProcessor> logger)
+        public VehicleDestroyPayloadProcessor(IEventRepository eventRepository, ICharacterService characterService, ILogger<VehicleDestroyPayloadProcessor> logger)
         {
             _eventRepository = eventRepository;
+            _characterService = characterService;
             _logger = logger;
         }
 
