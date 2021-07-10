@@ -47,7 +47,7 @@ namespace LivePlanetmans.Data
             services.AddSingleton<IMetagameEventRepository, MetagameEventRepository>();
             services.AddSingleton<IExperienceRepository, ExperienceRepository>();
             services.AddSingleton<IEventRepository, EventRepository>();
-            //services.AddSingleton<ICharacterRepository, CharacterRepository>();
+            services.AddSingleton<ICharacterRepository, CharacterRepository>();
             //services.AddSingleton<IOutfitRepository, OutfitRepository>();
 
             return services;

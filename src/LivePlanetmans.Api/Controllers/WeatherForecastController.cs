@@ -1,4 +1,5 @@
-﻿using LivePlanetmans.Data.Models.Census;
+﻿using LivePlanetmans.App.Services.Planetside;
+using LivePlanetmans.Data.Models.Census;
 using LivePlanetmans.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,10 +22,12 @@ namespace LivePlanetmans.Api.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
 
         private readonly ILoadoutRepository _loadoutRepository;
+        private readonly ICharacterService _characterService;
 
-        public WeatherForecastController(ILoadoutRepository loadoutRepository, ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILoadoutRepository loadoutRepository, ICharacterService characterService, ILogger<WeatherForecastController> logger)
         {
             _loadoutRepository = loadoutRepository;
+            _characterService = characterService;
             _logger = logger;
         }
 
@@ -45,6 +48,12 @@ namespace LivePlanetmans.Api.Controllers
         public async Task<IEnumerable<Loadout>> GetLoadouts()
         {
             return await _loadoutRepository.GetAllLoadoutsAsync();
+        }
+
+        [HttpGet("/characters/{characterName}")]
+        public async Task<Character> GetCharacterByName(string characterName)
+        {
+            return await _characterService.GetCharacterByName(characterName);
         }
     }
 }

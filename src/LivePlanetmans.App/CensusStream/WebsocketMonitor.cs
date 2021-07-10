@@ -63,10 +63,10 @@ namespace LivePlanetmans.App.CensusStream
                 eventNames.AddRange(experienceEvents);
             }
 
-            Console.WriteLine("============= Websocket Monitor =============");
+            //Console.WriteLine("============= Websocket Monitor =============");
 
-            Console.WriteLine($"Characters: {_options.Characters?.Count()}");
-            Console.WriteLine($"Worlds: {_options.Worlds?.Count()}");
+            //Console.WriteLine($"Characters: {_options.Characters?.Count()}");
+            //Console.WriteLine($"Worlds: {_options.Worlds?.Count()}");
 
             return new CensusStreamSubscription
             {

@@ -1,6 +1,7 @@
 ﻿using LivePlanetmans.CensusServices;
 using LivePlanetmans.CensusServices.Models;
 using LivePlanetmans.Data.Models.Census;
+using LivePlanetmans.Data.Repositories;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -10,12 +11,14 @@ namespace LivePlanetmans.CensusStore.Services
     public class CharacterStore : ICharacterStore
     {
         private readonly IOutfitStore _outfitStore;
+        private readonly ICharacterRepository _characterRepository;
         private readonly CensusCharacter _censusCharacter;
         private readonly ILogger<CharacterStore> _logger;
 
-        public CharacterStore(IOutfitStore outfitStore, CensusCharacter censusCharacter, ILogger<CharacterStore> logger)
+        public CharacterStore(IOutfitStore outfitStore, ICharacterRepository characterRepository, CensusCharacter censusCharacter, ILogger<CharacterStore> logger)
         {
             _outfitStore = outfitStore;
+            _characterRepository = characterRepository;
             _censusCharacter = censusCharacter;
             _logger = logger;
         }
@@ -24,6 +27,13 @@ namespace LivePlanetmans.CensusStore.Services
         {
             try
             {
+                var censusEntity = await _characterRepository.GetCharacterByIdAsync(characterId);
+
+                if (censusEntity != null)
+                {
+                    return censusEntity;
+                }
+
                 var character = await _censusCharacter.GetCharacter(characterId);
             
                 if (character == null)
@@ -31,8 +41,10 @@ namespace LivePlanetmans.CensusStore.Services
                     return null;
                 }
             
-                var censusEntity = ConvertToDbModel(character);
-            
+                censusEntity = ConvertToDbModel(character);
+
+                await _characterRepository.UpsertAsync(censusEntity);
+
                 return censusEntity;
             }
             catch (Exception ex)
@@ -45,6 +57,13 @@ namespace LivePlanetmans.CensusStore.Services
 
         public async Task<Character> GetCharacterByNameAsync(string characterName)
         {
+            var censusEntity = await _characterRepository.GetCharacterByNameAsync(characterName);
+
+            if (censusEntity != null)
+            {
+                return censusEntity;
+            }
+            
             var character = await _censusCharacter.GetCharacterByName(characterName);
 
             if (character == null)
@@ -52,7 +71,9 @@ namespace LivePlanetmans.CensusStore.Services
                 return null;
             }
 
-            var censusEntity = ConvertToDbModel(character);
+            censusEntity = ConvertToDbModel(character);
+
+            await _characterRepository.UpsertAsync(censusEntity);
 
             return censusEntity;
         }
