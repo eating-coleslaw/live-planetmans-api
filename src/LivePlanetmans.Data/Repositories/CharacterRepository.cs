@@ -1,5 +1,6 @@
 ﻿using LivePlanetmans.Data.Models.Census;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using System.Threading.Tasks;
 
 namespace LivePlanetmans.Data.Repositories
@@ -37,6 +38,14 @@ namespace LivePlanetmans.Data.Repositories
             await dbContext.Characters.UpsertAsync(entity, a => a.Id == entity.Id);
 
             await dbContext.SaveChangesAsync();
+            
+            //try
+            //{
+            //}
+            //catch (DbUpdateException ex) when ((ex.InnerException as PostgresException)?.SqlState == "23505")
+            //{
+            //    // Ignore unique constraint errors (https://www.postgresql.org/docs/current/static/errcodes-appendix.html)
+            //}
 
             return entity;
         }

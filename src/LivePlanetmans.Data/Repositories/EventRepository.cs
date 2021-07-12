@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LivePlanetmans.Data.Models.Events;
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,26 @@ namespace LivePlanetmans.Data.Repositories
             catch (DbUpdateException ex) when ((ex.InnerException as PostgresException)?.SqlState == "23505")
             {
                 // Ignore unique constraint errors (https://www.postgresql.org/docs/current/static/errcodes-appendix.html)
+            }
+        }
+
+        public async Task<IEnumerable<Death>> GetDeathsForWorldInTimeRange(int worldId, DateTime start, DateTime end)
+        {
+            using var factory = _dbContextHelper.GetFactory();
+            var dbContext = factory.GetDbContext();
+
+            var deaths = new List<Death>();
+
+            try
+            {
+                return await dbContext.Deaths.Where(d => d.WorldId == worldId
+                                                      && d.Timestamp >= start
+                                                      && d.Timestamp <= end)
+                                             .ToListAsync();
+            }
+            catch
+            {
+                return null;
             }
         }
     }

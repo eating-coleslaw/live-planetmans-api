@@ -2,6 +2,7 @@
 using LivePlanetmans.CensusServices.Models;
 using LivePlanetmans.Data.Models.Census;
 using LivePlanetmans.Data.Repositories;
+using LivePlanetmans.Shared;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -15,6 +16,9 @@ namespace LivePlanetmans.CensusStore.Services
         private readonly CensusCharacter _censusCharacter;
         private readonly ILogger<CharacterStore> _logger;
 
+        private readonly KeyedSemaphoreSlim _characterLock = new();
+
+
         public CharacterStore(IOutfitStore outfitStore, ICharacterRepository characterRepository, CensusCharacter censusCharacter, ILogger<CharacterStore> logger)
         {
             _outfitStore = outfitStore;
@@ -25,33 +29,36 @@ namespace LivePlanetmans.CensusStore.Services
 
         public async Task<Character> GetCharacterAsync(string characterId)
         {
-            try
+            using (await _characterLock.WaitAsync(characterId))
             {
-                var censusEntity = await _characterRepository.GetCharacterByIdAsync(characterId);
-
-                if (censusEntity != null)
+                try
                 {
+                    var censusEntity = await _characterRepository.GetCharacterByIdAsync(characterId);
+
+                    if (censusEntity != null)
+                    {
+                        return censusEntity;
+                    }
+
+                    var character = await _censusCharacter.GetCharacter(characterId);
+
+                    if (character == null)
+                    {
+                        return null;
+                    }
+
+                    censusEntity = ConvertToDbModel(character);
+
+                    await _characterRepository.UpsertAsync(censusEntity);
+
                     return censusEntity;
                 }
-
-                var character = await _censusCharacter.GetCharacter(characterId);
-            
-                if (character == null)
+                catch (Exception ex)
                 {
+                    _logger.LogError($"failed to get character {characterId}: {ex}");
+
                     return null;
                 }
-            
-                censusEntity = ConvertToDbModel(character);
-
-                await _characterRepository.UpsertAsync(censusEntity);
-
-                return censusEntity;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"failed to get character {characterId}: {ex}");
-
-                return null;
             }
         }
 

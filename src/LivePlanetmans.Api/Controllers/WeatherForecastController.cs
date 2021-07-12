@@ -1,4 +1,5 @@
-﻿using LivePlanetmans.App.Services.Planetside;
+﻿using LivePlanetmans.App.Models;
+using LivePlanetmans.App.Services.Planetside;
 using LivePlanetmans.Data.Models.Census;
 using LivePlanetmans.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -23,11 +24,13 @@ namespace LivePlanetmans.Api.Controllers
 
         private readonly ILoadoutRepository _loadoutRepository;
         private readonly ICharacterService _characterService;
+        private readonly IEventService _eventService;
 
-        public WeatherForecastController(ILoadoutRepository loadoutRepository, ICharacterService characterService, ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILoadoutRepository loadoutRepository, ICharacterService characterService, IEventService eventService, ILogger<WeatherForecastController> logger)
         {
             _loadoutRepository = loadoutRepository;
             _characterService = characterService;
+            _eventService = eventService;
             _logger = logger;
         }
 
@@ -54,6 +57,18 @@ namespace LivePlanetmans.Api.Controllers
         public async Task<Character> GetCharacterByName(string characterName)
         {
             return await _characterService.GetCharacterByName(characterName);
+        }
+
+        [HttpGet("/activity/worlds/{worldId}/players")]
+        public async Task<ActivityLeaderboardStats> GetWorldActivityPlayerLeaderboard(int worldId)
+        {
+            var endTime = DateTime.UtcNow;
+
+            var oneHour = TimeSpan.FromHours(-1);
+
+            var startTime = endTime.Add(oneHour);
+
+            return await _eventService.GetWorldPlayerStatsInTimeRange(worldId, startTime, endTime);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace LivePlanetmans.App.Services.Planetside
         public static IServiceCollection AddCensusStoreServices(this IServiceCollection services)
         {
             services.AddSingleton<ICharacterService, CharacterService>();
+            services.AddSingleton<IEventService, EventService>();
             services.AddSingleton<IFacilityService, FacilityService>();
             services.AddSingleton<IFactionService, FactionService>();
             services.AddSingleton<IItemService, ItemService>();
