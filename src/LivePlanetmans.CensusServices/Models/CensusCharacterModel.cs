@@ -11,6 +11,7 @@ namespace LivePlanetmans.CensusServices.Models
         public CharacterTimes Times { get; set; }
         public CharacterBattleRank BattleRank { get; set; }
         public CharacterCerts Certs { get; set; }
+        public CharacterOutfitMember OutfitMember { get; set; }
         public int WorldId { get; set; }
         public string OnlineStatus { get; set; }
         public int PrestigeLevel { get; set; }
@@ -42,6 +43,14 @@ namespace LivePlanetmans.CensusServices.Models
             public int SpentPoints { get; set; }
             public int AvailablePoints { get; set; }
             public float PercentToNext { get; set; }
+        }
+
+        public class CharacterOutfitMember
+        {
+            public string OutfitId { get; set; }
+            public DateTime MemberSinceDate { get; set; }
+            public string Rank { get; set; }
+            public int RankOrdinal { get; set; }
         }
     }
 }

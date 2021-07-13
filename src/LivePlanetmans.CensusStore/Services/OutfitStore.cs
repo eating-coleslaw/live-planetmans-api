@@ -22,6 +22,29 @@ namespace LivePlanetmans.CensusStore.Services
             _logger = logger;
         }
 
+        public async Task<IEnumerable<Outfit>> GetOutfitsByIdsAsync(IEnumerable<string> outfitIds)
+        {
+            var outfitTasks = outfitIds.Select(GetOutfitByIdAsync).ToList();
+
+            var outfits = new List<Outfit>();
+
+            while (outfitTasks.Any())
+            {
+                var finishedTask = await Task.WhenAny(outfitTasks);
+
+                var outfit = await finishedTask;
+
+                outfitTasks.Remove(finishedTask);
+
+                if (outfit != null)
+                {
+                    outfits.Add(outfit);
+                }
+            }
+
+            return outfits;
+        }
+
         public async Task<Outfit> GetOutfitByIdAsync(string outfitId)
         {
             return await GetOutfitInternalAsync(outfitId);

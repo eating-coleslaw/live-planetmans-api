@@ -68,7 +68,7 @@ namespace LivePlanetmans.Api.Controllers
 
             var startTime = endTime.Add(oneHour);
 
-            return await _eventService.GetWorldPlayerStatsInTimeRange(worldId, startTime, endTime);
+            return await _eventService.GetWorldPlayerStatsInTimeRange(worldId, startTime, endTime, 20);
         }
     }
 }

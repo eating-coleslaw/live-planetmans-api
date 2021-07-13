@@ -23,7 +23,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
 
         public async Task Process(ContinentLockPayload payload)
         {
-            if (!await _lockFilter.TryFilterNewPayload(payload, p => p.Timestamp.ToString("s")))
+            if (!await _lockFilter.TryFilterNewPayload(payload, p => $"{p.Timestamp:s}^{p.WorldId}^{p.ZoneId}"))
             {
                 return;
             }

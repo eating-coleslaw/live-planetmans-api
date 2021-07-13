@@ -1,6 +1,7 @@
 ﻿using LivePlanetmans.CensusServices.Models;
 using DaybreakGames.Census;
 using System.Threading.Tasks;
+using System;
 
 namespace LivePlanetmans.CensusServices
 {
@@ -18,7 +19,23 @@ namespace LivePlanetmans.CensusServices
             var query = _queryFactory.Create("character");
             query.AddResolve("world");
             query.AddResolve("online_status");
-            query.ShowFields("character_id", "name.first", "faction_id", "world_id", "battle_rank.value", "battle_rank.percent_to_next", "certs.earned_points", "title_id", "prestige_level", "online_status");
+            query.AddResolve("outfit_member");
+
+            query.ShowFields("character_id",
+                                "name.first",
+                                "faction_id",
+                                "world_id",
+                                "battle_rank.value",
+                                "battle_rank.percent_to_next",
+                                "certs.earned_points",
+                                "title_id",
+                                "prestige_level",
+                                "online_status",
+                                "outfit_member.outfit_id",
+                                "outfit_member.member_since_date",
+                                "outfit_member.rank",
+                                "outfit_member.rank_ordinal");
+
             query.Where("character_id").Equals(characterId);
 
             return await query.GetAsync<CensusCharacterModel>();
@@ -29,7 +46,23 @@ namespace LivePlanetmans.CensusServices
             var query = _queryFactory.Create("character");
             query.AddResolve("world");
             query.AddResolve("online_status");
-            query.ShowFields("character_id", "name.first", "faction_id", "world_id", "battle_rank.value", "battle_rank.percent_to_next", "certs.earned_points", "title_id", "prestige_level", "online_status");
+            query.AddResolve("outfit_member");
+
+            query.ShowFields("character_id",
+                                "name.first",
+                                "faction_id",
+                                "world_id",
+                                "battle_rank.value",
+                                "battle_rank.percent_to_next",
+                                "certs.earned_points",
+                                "title_id",
+                                "prestige_level",
+                                "online_status",
+                                "outfit_member.outfit_id",
+                                "outfit_member.member_since_date",
+                                "outfit_member.rank",
+                                "outfit_member.rank_ordinal");
+
             query.Where("name.first_lower").Equals(characterName.ToLower());
 
             return await query.GetAsync<CensusCharacterModel>();

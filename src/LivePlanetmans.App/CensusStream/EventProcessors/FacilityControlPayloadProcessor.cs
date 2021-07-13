@@ -24,7 +24,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
 
         public async Task Process(FacilityControlPayload payload)
         {
-            if (!await _facilityControlFilter.TryFilterNewPayload(payload, p => p.Timestamp.ToString("s")))
+            if (!await _facilityControlFilter.TryFilterNewPayload(payload, p => $"{p.Timestamp:s}^{p.FacilityId}^{p.WorldId}"))
             {
                 return;
             }

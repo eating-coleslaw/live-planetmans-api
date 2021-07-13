@@ -9,6 +9,7 @@ namespace LivePlanetmans.App.Services.Planetside
         Task<Outfit> GetOutfit(string outfitId);
         Task<Outfit> GetOutfitByAlias(string alias);
         Task<IEnumerable<Character>> GetOutfitMembersByAlias(string alias);
+        Task<IEnumerable<Outfit>> GetOutfitsByIdsAsync(IEnumerable<string> outfitIds);
         Task<OutfitMember> GetUpdatedCharacterOutfitMembership(Character character);
 
     }

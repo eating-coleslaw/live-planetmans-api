@@ -23,7 +23,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
 
         public async Task Process(GainExperiencePayload payload)
         {
-            if (!await _experienceGainFilter.TryFilterNewPayload(payload, p => p.Timestamp.ToString("s")))
+            if (!await _experienceGainFilter.TryFilterNewPayload(payload, p => $"{p.Timestamp:s}^{p.CharacterId}^{p.ExperienceId}^{p.OtherId}"))
             {
                 return;
             }

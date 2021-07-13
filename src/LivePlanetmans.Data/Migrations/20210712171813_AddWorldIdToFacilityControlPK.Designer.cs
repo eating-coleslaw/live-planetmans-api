@@ -3,15 +3,17 @@ using System;
 using LivePlanetmans.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LivePlanetmans.Data.Migrations
 {
     [DbContext(typeof(PlanetmansDbContext))]
-    partial class PlanetmansDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210712171813_AddWorldIdToFacilityControlPK")]
+    partial class AddWorldIdToFacilityControlPK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

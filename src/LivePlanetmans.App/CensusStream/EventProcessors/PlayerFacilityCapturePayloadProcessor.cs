@@ -26,7 +26,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
 
         public async Task Process(PlayerFacilityCapturePayload payload)
         {
-            if (!await _playerFacilityCaptureFilter.TryFilterNewPayload(payload, p => p.Timestamp.ToString("s")))
+            if (!await _playerFacilityCaptureFilter.TryFilterNewPayload(payload, p => $"{p.Timestamp:s}^{p.CharacterId}^{p.FacilityId}"))
             {
                 return;
             }

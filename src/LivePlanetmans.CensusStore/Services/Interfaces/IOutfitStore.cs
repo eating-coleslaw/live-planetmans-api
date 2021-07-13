@@ -10,6 +10,6 @@ namespace LivePlanetmans.CensusStore.Services
         Task<Outfit> GetOutfitByAlias(string alias);
         Task<IEnumerable<Character>> GetOutfitMembersByAlias(string alias);
         Task<OutfitMember> UpdateCharacterOutfitMembership(Character character);
-
+        Task<IEnumerable<Outfit>> GetOutfitsByIdsAsync(IEnumerable<string> outfitIds);
     }
 }

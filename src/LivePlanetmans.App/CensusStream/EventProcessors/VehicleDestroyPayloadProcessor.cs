@@ -27,7 +27,7 @@ namespace LivePlanetmans.App.CensusStream.EventProcessors
 
         public async Task Process(VehicleDestroyPayload payload)
         {
-            if (!await _vehicleDestroyFilter.TryFilterNewPayload(payload, p => p.Timestamp.ToString("s")))
+            if (!await _vehicleDestroyFilter.TryFilterNewPayload(payload, p => $"{p.Timestamp:s}^{p.AttackerCharacterId}^{p.CharacterId}^{p.AttackerVehicleId}"))
             {
                 return;
             }

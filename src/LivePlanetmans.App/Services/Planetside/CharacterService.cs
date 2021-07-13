@@ -1,5 +1,6 @@
 ﻿using LivePlanetmans.CensusStore.Services;
 using LivePlanetmans.Data.Models.Census;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace LivePlanetmans.App.Services.Planetside
@@ -36,6 +37,11 @@ namespace LivePlanetmans.App.Services.Planetside
             }
 
             return await _outfitService.GetUpdatedCharacterOutfitMembership(character);
+        }
+
+        public async Task<IEnumerable<Character>> GetCharactersById(IEnumerable<string> characterIds)
+        {
+            return await _characterStore.GetCharactersById(characterIds);
         }
     }
 }

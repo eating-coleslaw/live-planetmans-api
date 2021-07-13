@@ -19,6 +19,11 @@ namespace LivePlanetmans.App.Services.Planetside
             _logger = logger;
         }
 
+        public async Task<IEnumerable<Outfit>> GetOutfitsByIdsAsync(IEnumerable<string> outfitIds)
+        {
+            return await _outfitStore.GetOutfitsByIdsAsync(outfitIds);
+        }
+
         public async Task<Outfit> GetOutfit(string outfitId)
         {
             return await _outfitStore.GetOutfitByIdAsync(outfitId);

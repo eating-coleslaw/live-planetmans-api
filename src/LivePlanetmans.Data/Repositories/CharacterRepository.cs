@@ -1,6 +1,8 @@
 ﻿using LivePlanetmans.Data.Models.Census;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LivePlanetmans.Data.Repositories
@@ -28,6 +30,14 @@ namespace LivePlanetmans.Data.Repositories
             var dbContext = factory.GetDbContext();
 
             return await dbContext.Characters.SingleOrDefaultAsync(c => c.Name == characterName);
+        }
+
+        public async Task<IEnumerable<Character>> GetCharactersById(IEnumerable<string> characterIds)
+        {
+            using var factory = _dbContextHelper.GetFactory();
+            var dbContext = factory.GetDbContext();
+
+            return await dbContext.Characters.Where(c => characterIds.Contains(c.Id)).ToListAsync();
         }
 
         public async Task<Character> UpsertAsync(Character entity)

@@ -5,6 +5,7 @@ using LivePlanetmans.Data.Repositories;
 using LivePlanetmans.Shared;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace LivePlanetmans.CensusStore.Services
@@ -96,6 +97,11 @@ namespace LivePlanetmans.CensusStore.Services
             return await _outfitStore.UpdateCharacterOutfitMembership(character);
         }
 
+        public async Task<IEnumerable<Character>> GetCharactersById(IEnumerable<string> characterIds)
+        {
+            return await _characterRepository.GetCharactersById(characterIds);
+        }
+
         private static Character ConvertToDbModel(CensusCharacterModel censusModel)
         {
             bool isOnline;
@@ -120,7 +126,8 @@ namespace LivePlanetmans.CensusStore.Services
                 BattleRankPercentToNext = censusModel.BattleRank.PercentToNext,
                 CertsEarned = censusModel.Certs.EarnedPoints,
                 PrestigeLevel = censusModel.PrestigeLevel,
-                IsOnline = isOnline
+                IsOnline = isOnline,
+                OutfitId = censusModel.OutfitMember?.OutfitId
             };
         }
     }

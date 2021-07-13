@@ -14,6 +14,7 @@ namespace LivePlanetmans.Data.DataConfigurations.Events
             {
                 e.Timestamp,
                 e.FacilityId,
+                e.WorldId,
             });
 
             builder.Property(e => e.Points).HasDefaultValue(0);
