@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="SQL\" />
+    <Folder Include="SQL\StoredProcedures\" />
   </ItemGroup>
 
 </Project>
