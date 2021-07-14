@@ -35,10 +35,7 @@ namespace LivePlanetmans.Api
                 options.AddPolicy(name: AllowSpecificOriginsPolicy,
                                   builder =>
                                   {
-                                      //builder.AllowAnyOrigin();
                                       builder.WithOrigins("http://localhost:3000", "https://eating-coleslaw.github.io");
-                                      //.AllowAnyHeader()
-                                      //.AllowAnyMethod();
                                   });
             });
 

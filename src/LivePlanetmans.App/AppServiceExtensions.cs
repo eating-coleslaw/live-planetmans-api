@@ -15,8 +15,7 @@ namespace LivePlanetmans.App
         {
             services.AddEntityFrameworkContext(configuration);
 
-            //var serviceKey = configuration["DaybreakGamesServiceKey"];
-            var serviceKey = Environment.GetEnvironmentVariable("DaybreakGamesServiceKey"); //, EnvironmentVariableTarget.Machine);
+            var serviceKey = configuration["DaybreakGamesServiceKey"];
 
             Console.WriteLine($"Service Key: {serviceKey}");
 

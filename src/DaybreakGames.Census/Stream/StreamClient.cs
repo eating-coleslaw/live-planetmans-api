@@ -42,7 +42,6 @@ namespace DaybreakGames.Census.Stream
             _logger = logger;
 
             CensusServiceKey = _options.Value.CensusServiceId;
-            //CensusServiceKey = Environment.GetEnvironmentVariable("DaybreakGamesServiceKey", EnvironmentVariableTarget.User);
         }
 
         private Func<string, Task> _onMessage;
