@@ -24,7 +24,8 @@ namespace LivePlanetmans.Data
 
             var options = configuration.Get<DatabaseOptions>();
 
-            var connectionString = configuration["ConnectionStrings:PlanetmansConnectionString"];
+            //var connectionString = configuration["ConnectionStrings:PlanetmansConnectionString"];
+            var connectionString = Environment.GetEnvironmentVariable("LivePlanetmansConnectionString"); //, EnvironmentVariableTarget.Machine);
 
             services.AddDbContextPool<PlanetmansDbContext>(builder =>
                 builder.UseNpgsql(connectionString, b =>

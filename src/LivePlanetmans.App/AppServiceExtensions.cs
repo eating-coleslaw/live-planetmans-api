@@ -15,10 +15,13 @@ namespace LivePlanetmans.App
         {
             services.AddEntityFrameworkContext(configuration);
 
-            Console.WriteLine($"Service Key: {configuration["DaybreakGamesServiceKey"]}");
+            //var serviceKey = configuration["DaybreakGamesServiceKey"];
+            var serviceKey = Environment.GetEnvironmentVariable("DaybreakGamesServiceKey"); //, EnvironmentVariableTarget.Machine);
+
+            Console.WriteLine($"Service Key: {serviceKey}");
 
             services.AddCensusServices(options =>
-                options.CensusServiceId = configuration["DaybreakGamesServiceKey"]);
+                options.CensusServiceId = serviceKey);
                 //options.CensusServiceId = Environment.GetEnvironmentVariable("DaybreakGamesServiceKey", EnvironmentVariableTarget.User));
 
             services.AddCensusHelpers();

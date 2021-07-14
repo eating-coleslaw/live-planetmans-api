@@ -1,6 +1,7 @@
 ﻿// Credit to Lampjaw
 
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -13,6 +14,9 @@ namespace DaybreakGames.Census.Stream
 {
     public class StreamClient : IStreamClient
     {
+        private readonly IOptions<CensusOptions> _options;
+
+
         private const string CensusWebsocketEndpoint = "wss://push.planetside2.com/streaming";
         private const string CensusServiceNamespace = "ps2";
 
@@ -32,11 +36,13 @@ namespace DaybreakGames.Census.Stream
         private readonly ILogger<StreamClient> _logger;
 
 
-        public StreamClient(ILogger<StreamClient> logger)
+        public StreamClient(IOptions<CensusOptions> options, ILogger<StreamClient> logger)
         {
+            _options = options;
             _logger = logger;
 
-            CensusServiceKey = Environment.GetEnvironmentVariable("DaybreakGamesServiceKey", EnvironmentVariableTarget.User);
+            CensusServiceKey = _options.Value.CensusServiceId;
+            //CensusServiceKey = Environment.GetEnvironmentVariable("DaybreakGamesServiceKey", EnvironmentVariableTarget.User);
         }
 
         private Func<string, Task> _onMessage;
@@ -70,6 +76,8 @@ namespace DaybreakGames.Census.Stream
                 ReconnectTimeout = TimeSpan.FromSeconds(35),
                 ErrorReconnectTimeout = TimeSpan.FromSeconds(30)
             };
+
+            Console.WriteLine($"Connection URI: {GetEndpoint()}");
 
             _client.DisconnectionHappened.Subscribe(info =>
             {

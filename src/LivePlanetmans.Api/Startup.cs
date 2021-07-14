@@ -36,7 +36,7 @@ namespace LivePlanetmans.Api
                                   builder =>
                                   {
                                       //builder.AllowAnyOrigin();
-                                      builder.WithOrigins("http://localhost:3000");
+                                      builder.WithOrigins("http://localhost:3000", "https://eating-coleslaw.github.io");
                                       //.AllowAnyHeader()
                                       //.AllowAnyMethod();
                                   });
